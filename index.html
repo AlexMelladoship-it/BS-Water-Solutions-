@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>BS Water Solutions — Agua osmotizada premium para empresas</title>
+<meta name="description" content="Dispensadores de agua osmotizada conectados a red. Pureza certificada, cero plástico, ahorro garantizado. Solicita tu visita gratuita.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;500;600;700;800&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:    oklch(.24 .055 250);   /* deep blue ink — text */
+  --abyss:  oklch(.20 .065 248);   /* dark blue — dark sections */
+  --azure:  oklch(.58 .15 240);    /* vivid water blue — accent */
+  --azure-d:oklch(.48 .16 245);    /* deeper azure — hover */
+  --sky:    oklch(.78 .10 235);    /* light sky blue */
+  --ice:    oklch(.955 .022 230);  /* ice blue tint bg */
+  --mist:   oklch(.985 .010 228);  /* near-white blue */
+  --white:  #fff;
+  --muted:  oklch(.52 .032 250);   /* muted blue-grey text */
+  --muted-d:oklch(.66 .03 250);    /* muted on dark */
+  --border: oklch(.91 .018 232);
+  --fd:'Sora',system-ui,sans-serif;
+  --fb:'DM Sans',system-ui,sans-serif;
+  --max:1240px;--nh:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:15px}
+body{font-family:var(--fb);color:var(--muted);background:var(--white);
+  -webkit-font-smoothing:antialiased;overflow-x:hidden;text-rendering:optimizeLegibility}
+img{display:block;max-width:100%}
+a{text-decoration:none;color:inherit}
+ul{list-style:none}
+button{cursor:pointer;border:none;font-family:inherit}
+
+.w{max-width:var(--max);margin:0 auto;padding:0 2.5rem}
+.wn{max-width:880px;margin:0 auto;padding:0 2.5rem}
+
+/* ── Type ───────────────────────── */
+.eyebrow{display:inline-flex;align-items:center;gap:.625rem;
+  font-size:.6875rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+  color:var(--azure);margin-bottom:1.5rem}
+.eyebrow::before{content:'';width:24px;height:1px;background:currentColor;flex-shrink:0}
+.eyebrow.c{justify-content:center}
+.eyebrow.c::before{display:none}
+.eyebrow-lt{color:var(--sky)}
+
+h2.t{font-family:var(--fd);font-size:clamp(1.9rem,3.6vw,2.85rem);font-weight:700;
+  color:var(--ink);line-height:1.1;letter-spacing:-.03em}
+h2.t em{font-style:normal;color:var(--azure)}
+h2.t-lt{color:#fff}
+h2.t-lt em{color:var(--sky)}
+.lead{font-size:1.0625rem;color:var(--muted);line-height:1.8;max-width:460px;margin-top:1.25rem;font-weight:400}
+.lead-lt{color:var(--muted-d)}
+
+/* ── Buttons ────────────────────── */
+.btn{display:inline-flex;align-items:center;gap:.5rem;padding:.9375rem 2rem;
+  border-radius:999px;font-family:var(--fb);font-size:.9375rem;font-weight:600;
+  border:1.5px solid transparent;transition:all .25s cubic-bezier(.4,0,.2,1);white-space:nowrap;cursor:pointer;
+  position:relative;overflow:hidden;z-index:0;--rip:rgba(255,255,255,.5)}
+.btn>*{position:relative;z-index:1}
+.ripple{position:absolute;border-radius:50%;transform:scale(0);background:var(--rip);
+  pointer-events:none;z-index:-1;animation:ripple .7s cubic-bezier(.22,1,.36,1) forwards}
+@keyframes ripple{to{transform:scale(2.6);opacity:0}}
+.btn-w,.btn-o{--rip:rgba(74,144,224,.30)}
+.pcta .btn-o{--rip:rgba(74,144,224,.32)}
+.btn-p{background:var(--azure);color:#fff;border-color:var(--azure)}
+.btn-p:hover{background:var(--azure-d);transform:translateY(-2px);box-shadow:0 12px 32px oklch(.58 .15 240/.38)}
+.btn-d{background:var(--ink);color:#fff;border-color:var(--ink)}
+.btn-d:hover{background:var(--abyss);transform:translateY(-2px);box-shadow:0 12px 32px oklch(.24 .055 250/.3)}
+.btn-w{background:#fff;color:var(--ink);border-color:#fff}
+.btn-w:hover{transform:translateY(-2px);box-shadow:0 12px 32px oklch(0 0 0/.18)}
+.btn-o{background:transparent;color:var(--ink);border-color:var(--border)}
+.btn-o:hover{border-color:var(--ink)}
+.btn-go{background:transparent;color:#fff;border-color:oklch(1 0 0/.25)}
+.btn-go:hover{background:oklch(1 0 0/.1);border-color:oklch(1 0 0/.5)}
+.btn-sm{padding:.5625rem 1.25rem;font-size:.875rem}
+.tlink{display:inline-flex;align-items:center;gap:.45rem;font-size:.9375rem;font-weight:600;color:var(--azure);transition:gap .2s}
+.tlink:hover{gap:.75rem}
+
+/* ── Progress + Nav ─────────────── */
+#pb{position:fixed;top:0;left:0;height:2px;background:var(--azure);width:0;z-index:300}
+#nav{position:fixed;top:0;left:0;right:0;z-index:100;height:var(--nh);display:flex;align-items:center;
+  border-bottom:1px solid transparent;transition:background .35s,border-color .35s,box-shadow .35s}
+#nav.sc{background:oklch(1 0 0/.85);backdrop-filter:blur(28px) saturate(180%);
+  border-bottom-color:var(--border);box-shadow:0 1px 10px oklch(.24 .05 250/.05)}
+.ni{display:flex;align-items:center;gap:2.5rem;width:100%}
+.nlinks{display:flex;align-items:center;gap:2.25rem}
+.nlinks a{font-size:.875rem;font-weight:500;color:var(--muted);letter-spacing:-.005em;transition:color .2s}
+.nlinks a:hover{color:var(--ink)}
+.logo{display:flex;align-items:center;gap:.625rem;font-family:var(--fd);font-weight:700;font-size:1.0625rem;color:var(--ink);letter-spacing:-.02em;flex-shrink:0;white-space:nowrap;margin-right:auto}
+.ni .btn{flex-shrink:0}
+.nlinks{flex-shrink:0}
+
+/* ── Hero ───────────────────────── */
+#hero{position:relative;min-height:90vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:flex-start;overflow:hidden;padding-top:calc(var(--nh) + 3.5rem)}
+#hc{position:absolute;inset:0;width:100%;height:100%;z-index:0}
+.h-fade{position:absolute;left:0;right:0;bottom:0;height:30%;z-index:1;pointer-events:none;
+  background:linear-gradient(to bottom,transparent,var(--white))}
+.h-top{position:relative;z-index:2;text-align:center;max-width:880px;padding:0 2.5rem}
+.h-badge{display:inline-flex;align-items:center;gap:.625rem;padding:.4rem 1.125rem;border-radius:999px;
+  margin-bottom:2rem;border:1px solid var(--border);background:oklch(1 0 0/.6);backdrop-filter:blur(8px);
+  font-size:.7rem;font-weight:600;letter-spacing:.12em;text-transform:uppercase;color:var(--azure)}
+.bdot{width:5px;height:5px;border-radius:50%;background:var(--azure);animation:blink 2.4s ease-in-out infinite;flex-shrink:0}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+h1.hh{font-family:var(--fd);font-size:clamp(2.75rem,6.5vw,5.5rem);font-weight:800;
+  color:var(--ink);line-height:1.0;letter-spacing:-.04em;margin-bottom:1.5rem}
+h1.hh em{font-style:normal;color:var(--azure)}
+.hsub{font-size:clamp(1rem,1.8vw,1.1875rem);color:var(--muted);line-height:1.7;max-width:480px;margin:0 auto 2.25rem}
+.hacts{display:flex;align-items:center;gap:1rem;justify-content:center;flex-wrap:wrap}
+.h-prod{position:relative;z-index:2;margin-top:1rem;display:flex;align-items:flex-end;justify-content:center;flex:1;min-height:0}
+.h-prod-glow{position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:780px;height:720px;
+  background:radial-gradient(ellipse 60% 50% at 50% 70%,oklch(.74 .12 235/.40) 0%,transparent 62%);z-index:-1;pointer-events:none}
+.h-lineup{position:relative;z-index:2;display:flex;align-items:flex-end;justify-content:center}
+.h-lineup img{object-fit:contain;width:auto}
+.hl-m{max-height:60vh;z-index:3;filter:drop-shadow(0 44px 58px oklch(.22 .10 250/.34));animation:float 7s ease-in-out infinite}
+.hl-s{max-height:47vh;z-index:1;filter:drop-shadow(0 32px 48px oklch(.24 .08 250/.24))}
+.hl-left{margin-right:-2%;z-index:2;animation:float 7.6s ease-in-out infinite .6s}
+.hl-right{margin-left:-2%;animation:float 8.2s ease-in-out infinite 1.1s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+
+/* ── Marquee ────────────────────── */
+#marquee{background:var(--ink);overflow:hidden;padding:1.125rem 0}
+.mq-track{display:flex;gap:3.5rem;white-space:nowrap;animation:scroll 32s linear infinite;width:max-content}
+.mq-item{display:inline-flex;align-items:center;gap:3.5rem;font-family:var(--fd);font-weight:500;
+  font-size:.9375rem;color:oklch(.82 .04 235);letter-spacing:.04em;text-transform:uppercase}
+.mq-item::after{content:'';width:5px;height:5px;border-radius:50%;background:var(--sky);flex-shrink:0}
+@keyframes scroll{to{transform:translateX(calc(-50% - 1.75rem))}}
+
+/* ── Manifesto ──────────────────── */
+#manifesto{padding:6.5rem 0;background:var(--white)}
+.mf{font-family:var(--fd);font-size:clamp(1.35rem,2.8vw,2.1rem);font-weight:600;line-height:1.35;
+  color:var(--ink);letter-spacing:-.025em;text-align:center;max-width:900px;margin:0 auto}
+.mf em{font-style:normal;color:var(--azure)}
+.mf .dim{color:oklch(.78 .03 250)}
+
+/* ── Stats ──────────────────────── */
+#stats{padding:0 0 6.5rem;background:var(--white)}
+.stats-row{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--border);border-bottom:1px solid var(--border)}
+.stat{padding:3.25rem 1.5rem;text-align:center;border-right:1px solid var(--border)}
+.stat:last-child{border-right:none}
+.sv{font-family:var(--fd);font-size:clamp(2rem,3.6vw,3rem);font-weight:700;color:var(--ink);letter-spacing:-.045em;line-height:1}
+.sv em{font-style:normal;color:var(--azure)}
+.sl{font-size:.8125rem;color:var(--muted);margin-top:.75rem;letter-spacing:.02em;line-height:1.5}
+
+/* ── Showcase (deep blue) ───────── */
+#showcase{padding:6.5rem 0;background:var(--abyss);position:relative;overflow:hidden}
+.sh-glow{position:absolute;top:-10%;right:-5%;width:700px;height:700px;
+  background:radial-gradient(circle,oklch(.55 .15 240/.22) 0%,transparent 65%);pointer-events:none}
+.sh-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.sh-card{border-radius:32px;overflow:hidden;position:relative;min-height:560px;
+  box-shadow:0 40px 100px oklch(0 0 0/.42)}
+.sh-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:right center;z-index:1}
+.sh-cap{position:absolute;bottom:1.25rem;left:1.25rem;z-index:2;display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem 1rem;border-radius:999px;background:oklch(.12 .04 245/.55);backdrop-filter:blur(12px);
+  border:1px solid oklch(1 0 0/.18);font-size:.75rem;font-weight:500;color:#fff;letter-spacing:.02em}
+.sh-cap::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sky)}
+.temps{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem;margin-top:2.25rem}
+.temp{padding:1.25rem .75rem;border-radius:16px;text-align:center;border:1px solid oklch(1 0 0/.1);background:oklch(1 0 0/.04);transition:transform .25s,background .25s}
+.temp:hover{transform:translateY(-3px);background:oklch(1 0 0/.07)}
+.temp-ic{width:38px;height:38px;border-radius:11px;display:flex;align-items:center;justify-content:center;margin:0 auto .75rem}
+.temp-cold .temp-ic{background:oklch(.62 .14 235/.22);color:oklch(.80 .11 235)}
+.temp-hot .temp-ic{background:oklch(.66 .16 45/.24);color:oklch(.80 .13 55)}
+.temp-nat .temp-ic{background:oklch(.64 .12 160/.22);color:oklch(.80 .11 160)}
+.temp-t{font-size:.9375rem;font-weight:600;color:#fff;margin-bottom:.15rem}
+.temp-d{font-size:.7rem;color:var(--muted-d);letter-spacing:.02em}
+.sh-feats{margin-top:2.5rem;display:flex;flex-direction:column}
+.shf{padding:1.5rem 0;border-bottom:1px solid oklch(1 0 0/.1);display:flex;align-items:flex-start;gap:1.5rem}
+.shf:last-child{border-bottom:none}
+.shf-n{font-family:var(--fd);font-size:1.375rem;font-weight:700;color:var(--sky);flex-shrink:0;line-height:1;padding-top:.05rem}
+.shf-t{font-size:.9375rem;font-weight:600;color:#fff;margin-bottom:.3rem}
+.shf-d{font-size:.875rem;color:var(--muted-d);line-height:1.7}
+
+/* ── Benefits ───────────────────── */
+#beneficios{padding:6.5rem 0;background:var(--white)}
+.ben-hd{text-align:center;max-width:640px;margin:0 auto 5rem}
+.ben-hd .lead{margin:1.25rem auto 0}
+.ben-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:3.5rem 3rem}
+.bc{}
+.bc-num{font-family:var(--fd);font-size:3rem;font-weight:700;color:var(--azure);line-height:1;letter-spacing:-.04em;margin-bottom:1.25rem}
+.bc-t{font-size:1.125rem;font-weight:600;color:var(--ink);margin-bottom:.625rem;font-family:var(--fb)}
+.bc-d{font-size:.9375rem;color:var(--muted);line-height:1.75}
+.bc-line{width:36px;height:2px;background:var(--border);margin-bottom:1.75rem}
+
+/* ── Salud band ─────────────────── */
+#salud{padding:6.5rem 0;background:var(--abyss);position:relative;overflow:hidden}
+.salud-glow{position:absolute;top:-15%;left:-8%;width:640px;height:640px;
+  background:radial-gradient(circle,oklch(.55 .15 240/.22) 0%,transparent 65%);pointer-events:none}
+.salud-grid{display:grid;grid-template-columns:.72fr 1fr;gap:5rem;align-items:center;position:relative;z-index:1}
+.salud-img{border-radius:28px;overflow:hidden;aspect-ratio:1/1.4;position:relative;
+  box-shadow:0 40px 90px oklch(0 0 0/.42)}
+.salud-img img{width:100%;height:100%;object-fit:cover;object-position:center 30%}
+.salud-uv{position:absolute;top:1.125rem;left:1.125rem;display:inline-flex;align-items:center;gap:.5rem;
+  padding:.5rem 1rem;border-radius:999px;background:oklch(.12 .04 245/.55);backdrop-filter:blur(12px);
+  border:1px solid oklch(1 0 0/.2);font-size:.7rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:#fff}
+.salud-uv::before{content:'';width:6px;height:6px;border-radius:50%;background:var(--sky);
+  box-shadow:0 0 8px var(--sky);animation:blink 2.4s ease-in-out infinite}
+.salud-chips{display:flex;flex-wrap:wrap;gap:.625rem;margin-top:2.25rem}
+.schip{display:inline-flex;align-items:baseline;gap:.4rem;padding:.625rem 1.125rem;border-radius:14px;
+  border:1px solid oklch(1 0 0/.12);background:oklch(1 0 0/.05);font-size:.8125rem;color:var(--muted-d)}
+.schip strong{font-family:var(--fd);font-size:1.0625rem;font-weight:700;color:#fff;letter-spacing:-.02em}
+.schip em{font-style:normal;color:var(--sky);font-weight:700}
+
+/* ── Process ────────────────────── */
+#proceso{padding:6.5rem 0;background:var(--ice)}
+.pr-hd{text-align:center;max-width:600px;margin:0 auto 5rem}
+.tl{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;position:relative;margin-top:1rem}
+.tl::before{content:'';position:absolute;top:38px;left:16.66%;right:16.66%;height:2px;background:var(--border);z-index:0}
+.tl-fill{position:absolute;top:38px;left:16.66%;height:2px;background:var(--azure);z-index:0;width:0;transition:width 1.2s cubic-bezier(.22,1,.36,1)}
+.tl.go .tl-fill{width:66.66%}
+.tl-step{text-align:center;position:relative;z-index:1}
+.tl-node{width:78px;height:78px;border-radius:50%;background:#fff;border:2px solid var(--border);
+  display:flex;align-items:center;justify-content:center;margin:0 auto 1.75rem;color:var(--azure);
+  transition:all .5s cubic-bezier(.22,1,.36,1);box-shadow:0 4px 18px oklch(.24 .06 250/.07)}
+.tl-step.on .tl-node{background:var(--azure);border-color:var(--azure);color:#fff;box-shadow:0 10px 30px oklch(.58 .15 240/.42);transform:scale(1.06)}
+.tl-num{font-size:.7rem;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--azure);margin-bottom:.625rem}
+.tl-t{font-family:var(--fd);font-size:1.25rem;font-weight:700;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.02em}
+.tl-d{font-size:.875rem;color:var(--muted);line-height:1.6;max-width:230px;margin:0 auto}
+
+/* ── Sectores ───────────────────── */
+#sectores{padding:6.5rem 0;background:var(--white)}
+.sec-hd{text-align:center;max-width:600px;margin:0 auto 4rem}
+.sec-hd .lead{margin:1.25rem auto 0}
+.sg{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--border);
+  border:1px solid var(--border);border-radius:20px;overflow:hidden}
+.sk{padding:2.25rem 1.875rem;background:var(--white);transition:background .25s;min-height:180px;
+  display:flex;flex-direction:column}
+.sk:hover{background:var(--ice)}
+.sk-ic{width:42px;height:42px;border-radius:12px;background:var(--mist);border:1px solid var(--border);
+  color:var(--azure);display:flex;align-items:center;justify-content:center;margin-bottom:1.25rem;transition:all .25s}
+.sk:hover .sk-ic{background:var(--azure);border-color:var(--azure);color:#fff}
+.sk-n{font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.015em}
+.sk-d{font-size:.8125rem;color:var(--muted);line-height:1.65}
+.sk-cta{background:var(--azure)}
+.sk-cta:hover{background:var(--azure-d)}
+.sk-cta .sk-ic{background:oklch(1 0 0/.15);border-color:oklch(1 0 0/.2);color:#fff}
+.sk-cta:hover .sk-ic{background:oklch(1 0 0/.2)}
+.sk-cta .sk-n,.sk-cta .sk-d{color:#fff}
+.sk-cta .sk-d{color:oklch(.92 .04 235)}
+.sk-link{display:inline-flex;align-items:center;gap:.4rem;margin-top:auto;padding-top:1rem;font-size:.8125rem;font-weight:600;color:#fff}
+
+/* ── Productos ──────────────────── */
+#productos{padding:6.5rem 0;background:linear-gradient(180deg,oklch(.93 .032 231),oklch(.88 .048 234))}
+.prod-hd{margin-bottom:3.5rem;display:flex;align-items:flex-end;justify-content:space-between;gap:2rem}
+.prod-g{display:grid;grid-template-columns:repeat(5,1fr);gap:1.25rem}
+.pcard{background:var(--white);border:1px solid oklch(.86 .03 233);border-radius:22px;overflow:hidden;
+  display:flex;flex-direction:column;transition:all .3s cubic-bezier(.4,0,.2,1);box-shadow:0 8px 30px oklch(.24 .07 250/.10)}
+.pcard:hover{transform:translateY(-8px);box-shadow:0 28px 64px oklch(.24 .08 250/.18);border-color:var(--azure)}
+.pcard-star{border-color:var(--azure);box-shadow:0 0 0 1.5px var(--azure),0 14px 40px oklch(.24 .08 250/.16)}
+.pcard-star:hover{box-shadow:0 0 0 1.5px var(--azure),0 28px 64px oklch(.24 .08 250/.20)}
+.pvis{background:#fff;aspect-ratio:4/5;
+  display:flex;align-items:center;justify-content:center;padding:1.5rem;position:relative;overflow:hidden;
+  box-shadow:inset 0 0 46px oklch(.55 .09 235/.07);border-bottom:1px solid oklch(.92 .02 232)}
+.pvis img{max-height:100%;object-fit:contain;transition:transform .45s ease}
+.pcard:hover .pvis img{transform:scale(1.06)}
+.ptag{position:absolute;top:.875rem;left:.875rem;font-size:.65rem;font-weight:700;letter-spacing:.07em;
+  text-transform:uppercase;padding:.25rem .7rem;border-radius:999px;background:var(--azure);color:#fff}
+.pinfo{padding:1.5rem 1.375rem;flex:1;display:flex;flex-direction:column}
+.pmod{font-size:.7rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--azure);margin-bottom:.3rem}
+.pname{font-family:var(--fd);font-size:1.1875rem;font-weight:600;color:var(--ink);margin-bottom:.5rem;letter-spacing:-.02em}
+.pdesc{font-size:.8125rem;color:var(--muted);line-height:1.65;flex:1}
+.pspecs{margin-top:1rem;display:flex;flex-direction:column;gap:.35rem}
+.psp{font-size:.75rem;color:var(--muted);padding-left:.9rem;position:relative;line-height:1.5}
+.psp::before{content:'';position:absolute;left:0;top:.5em;width:4px;height:4px;border-radius:50%;background:var(--sky)}
+.pcta{padding:0 1.375rem 1.5rem}
+.pcta .btn{width:100%;justify-content:center}
+.pcta .btn-o{background:oklch(.93 .035 232);color:var(--azure-d);border-color:transparent;font-weight:600}
+.pcta .btn-o:hover{background:var(--azure);color:#fff;border-color:var(--azure);transform:translateY(-1px);box-shadow:0 8px 20px oklch(.58 .15 240/.32)}
+
+/* ── Comparativa ────────────────── */
+#comparativa{padding:6.5rem 0;background:var(--white)}
+.cmp-hd{text-align:center;max-width:560px;margin:0 auto 4rem}
+.cmp-hd .lead{margin:1.25rem auto 0}
+.ctable-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch;max-width:980px;margin:0 auto;border-radius:22px}
+.ctable{border:1px solid var(--border);border-radius:22px;overflow:hidden;min-width:560px}
+.cth,.ctr{display:grid;grid-template-columns:2.4fr 1.5fr 1.5fr}
+.cth{background:var(--ice);border-bottom:1px solid var(--border)}
+.cthc{padding:1.375rem 1.75rem;display:flex;align-items:center;gap:.5rem;font-size:.875rem}
+.cthc+.cthc{border-left:1px solid var(--border)}
+.cthc:first-child{font-size:.675rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:var(--muted)}
+.cthc:nth-child(2){background:oklch(.78 .10 235/.16)}
+.cbold{font-family:var(--fd);font-weight:700;font-size:.9375rem;color:var(--azure-d)}
+.csoft{font-weight:500;color:var(--muted)}
+.ctr{border-bottom:1px solid var(--border)}
+.ctr:last-child{border-bottom:none}
+.ctr:hover{background:var(--mist)}
+.ctd{padding:1.0625rem 1.75rem;display:flex;align-items:center;font-size:.875rem}
+.ctd+.ctd{border-left:1px solid var(--border)}
+.ctd:first-child{font-weight:500;color:var(--ink)}
+.ctd:nth-child(2){background:oklch(.78 .10 235/.07)}
+.vg{font-weight:500;color:var(--azure-d);display:flex;align-items:center;gap:.45rem}
+.vg::before{content:'';width:15px;height:15px;border-radius:50%;background:var(--azure);flex-shrink:0;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='white' stroke-width='3.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='20 6 9 17 4 12'/%3E%3C/svg%3E");background-size:10px;background-repeat:no-repeat;background-position:center}
+.vb{font-weight:400;color:oklch(.58 .04 250)}
+
+/* ── FAQ ────────────────────────── */
+#faq{padding:6.5rem 0;background:var(--ice)}
+.faq-g{display:grid;grid-template-columns:1fr 1fr;gap:5rem;margin-top:3.5rem;align-items:start}
+.faql{display:flex;flex-direction:column}
+.fi{border-bottom:1px solid var(--border)}
+.fq{display:flex;justify-content:space-between;align-items:center;gap:1.5rem;padding:1.625rem 0;cursor:pointer;
+  font-family:var(--fd);font-size:1.0625rem;font-weight:600;color:var(--ink);transition:color .2s;user-select:none;letter-spacing:-.015em}
+.fq:hover,.fi.op .fq{color:var(--azure)}
+.fchv{flex-shrink:0;width:18px;height:18px;color:var(--muted);transition:transform .3s,color .2s}
+.fi.op .fchv{transform:rotate(180deg);color:var(--azure)}
+.fans{max-height:0;overflow:hidden;transition:max-height .4s ease}
+.fi.op .fans{max-height:260px}
+.fansi{padding-bottom:1.625rem;font-size:.9375rem;color:var(--muted);line-height:1.8}
+.fside{background:var(--abyss);border-radius:24px;padding:3rem;position:sticky;top:calc(var(--nh) + 1.5rem);overflow:hidden;position:relative}
+.fside-glow{position:absolute;bottom:-30%;left:-10%;width:400px;height:400px;
+  background:radial-gradient(circle,oklch(.55 .15 240/.25) 0%,transparent 65%);pointer-events:none}
+.fst{font-family:var(--fd);font-size:1.5rem;font-weight:700;color:#fff;margin-bottom:1rem;position:relative;letter-spacing:-.02em}
+.fsd{font-size:.9375rem;color:var(--muted-d);margin-bottom:2rem;line-height:1.75;position:relative}
+.fside .btn{width:100%;justify-content:center;position:relative}
+.fslist{margin-top:2rem;padding-top:1.75rem;border-top:1px solid oklch(1 0 0/.1);display:flex;flex-direction:column;gap:.875rem;position:relative}
+.fsli{font-size:.875rem;color:var(--muted-d);display:flex;align-items:center;gap:.75rem}
+.fsli::before{content:'';width:4px;height:4px;border-radius:50%;background:var(--sky);flex-shrink:0}
+
+/* ── CTA ────────────────────────── */
+#cta{position:relative;padding:7rem 0;background:var(--ink);overflow:hidden}
+.cta-gfx{position:absolute;inset:0;pointer-events:none;
+  background:radial-gradient(ellipse 80% 70% at 50% 120%,oklch(.50 .15 240/.30) 0%,transparent 60%)}
+#ctac{position:absolute;inset:0;width:100%;height:100%;opacity:.5}
+.cta-inner{text-align:center;max-width:720px;margin:0 auto;position:relative;z-index:2}
+.ctah{font-family:var(--fd);font-size:clamp(2rem,4.2vw,3.5rem);font-weight:800;color:#fff;
+  letter-spacing:-.04em;line-height:1.05;margin-bottom:1.5rem}
+.ctah em{font-style:normal;color:var(--sky)}
+.ctap{font-size:1.0625rem;color:var(--muted-d);line-height:1.8;margin-bottom:2.75rem}
+.cta-form{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.cta-form input{flex:1;min-width:180px;max-width:230px;padding:.9375rem 1.375rem;border-radius:999px;
+  border:1px solid oklch(1 0 0/.14);background:oklch(1 0 0/.07);color:#fff;font-family:var(--fb);
+  font-size:.9375rem;outline:none;transition:border-color .2s}
+.cta-form input::placeholder{color:oklch(.55 .03 250)}
+.cta-form input:focus{border-color:oklch(.58 .15 240/.75)}
+.ctanote{margin-top:1.375rem;font-size:.8125rem;color:oklch(.50 .03 250)}
+
+/* ── Footer ─────────────────────── */
+footer{background:var(--abyss);border-top:1px solid oklch(1 0 0/.06);padding:4rem 0 2rem}
+.fg{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.flog{display:flex;align-items:center;gap:.5rem;font-family:var(--fd);font-weight:700;color:#fff;font-size:1.0625rem;margin-bottom:1rem;letter-spacing:-.02em}
+.ftg{font-size:.8125rem;color:var(--muted-d);line-height:1.7;max-width:230px}
+.fh{font-size:.7rem;font-weight:600;text-transform:uppercase;letter-spacing:.12em;color:oklch(.55 .03 250);margin-bottom:1rem}
+.fls{display:flex;flex-direction:column;gap:.625rem}
+.fls a{font-size:.8125rem;color:var(--muted-d);transition:color .2s}
+.fls a:hover{color:#fff}
+.fbar{display:flex;align-items:center;justify-content:space-between;padding-top:2rem;border-top:1px solid oklch(1 0 0/.07)}
+.fcp{font-size:.75rem;color:oklch(.48 .03 250)}
+
+/* ── Reveal ─────────────────────── */
+.rv{opacity:0;transform:translateY(26px);transition:opacity .8s cubic-bezier(.22,1,.36,1),transform .8s cubic-bezier(.22,1,.36,1)}
+.rv.in{opacity:1;transform:none}
+
+/* ── Hamburger & mobile drawer ──── */
+.ham{display:none;flex-direction:column;justify-content:center;gap:5.5px;width:36px;height:36px;
+  background:none;border:none;cursor:pointer;padding:4px;flex-shrink:0;margin-left:.5rem}
+.ham span{display:block;height:1.5px;background:var(--ink);border-radius:2px;
+  transition:transform .3s cubic-bezier(.4,0,.2,1),opacity .3s}
+.ham[aria-expanded="true"] span:nth-child(1){transform:translateY(7px) rotate(45deg)}
+.ham[aria-expanded="true"] span:nth-child(2){opacity:0;transform:scaleX(0)}
+.ham[aria-expanded="true"] span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+#mobile-menu{position:fixed;inset:0;top:var(--nh);background:rgba(255,255,255,.97);
+  backdrop-filter:blur(24px) saturate(180%);z-index:99;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;gap:2rem;
+  opacity:0;pointer-events:none;transition:opacity .3s}
+#mobile-menu.open{opacity:1;pointer-events:auto}
+#mobile-menu a.mm-link{font-family:var(--fd);font-size:1.5rem;font-weight:600;
+  color:var(--ink);letter-spacing:-.025em;transition:color .2s;padding:.25rem 0}
+#mobile-menu a.mm-link:hover{color:var(--azure)}
+#mobile-menu .btn{margin-top:.5rem;width:min(280px,80vw);justify-content:center}
+
+/* ── Responsive ─────────────────── */
+@media(max-width:1060px){
+  .prod-g{grid-template-columns:repeat(3,1fr)}
+  .sg{grid-template-columns:repeat(2,1fr)}
+  .sh-grid{grid-template-columns:1fr;gap:3rem}
+  .sh-card{order:-1;min-height:420px}
+  .salud-grid{grid-template-columns:1fr;gap:2.75rem;max-width:520px;margin:0 auto}
+  .salud-img{order:-1}
+  .fg{grid-template-columns:1fr 1fr;gap:2rem}
+}
+@media(max-width:768px){
+  .w,.wn{padding:0 1.25rem}
+  #manifesto,#stats,#showcase,#beneficios,#salud,#proceso,#sectores,#productos,#comparativa,#faq{padding:4rem 0}
+  #cta{padding:5rem 0}
+  #stats{padding:0 0 4rem}
+  /* Nav: hide CTA button — it lives in the mobile menu */
+  .ni{gap:.5rem}
+  .ni>.btn{display:none}
+  /* Hero */
+  #hero{padding-top:calc(var(--nh) + 1.25rem)}
+  .hl-m{max-height:34vh}
+  .hl-s{max-height:26vh}
+  .hacts{flex-direction:column;align-items:center}
+  .hacts .btn{width:100%;max-width:300px;justify-content:center}
+  /* Showcase */
+  .sh-card{min-height:280px}
+  /* Stats */
+  .stats-row{grid-template-columns:1fr 1fr}
+  .stat{border-bottom:1px solid var(--border)}
+  .stat:nth-child(2n){border-right:none}
+  /* Content */
+  .ben-grid{grid-template-columns:1fr;gap:2.75rem}
+  .tl{grid-template-columns:1fr;gap:2.5rem}
+  .tl::before,.tl-fill{display:none}
+  .temps{gap:.5rem}
+  .faq-g{grid-template-columns:1fr;gap:2.5rem}
+  .fside{position:static}
+  .prod-g{grid-template-columns:repeat(2,1fr)}
+  .cth,.ctr{grid-template-columns:1.4fr 1fr 1fr}
+  .cthc,.ctd{padding:.8125rem 1rem;font-size:.8125rem}
+  .nlinks{display:none}
+  .ham{display:flex}
+  .prod-hd{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:480px){
+  .prod-g{grid-template-columns:1fr}
+  .sg{grid-template-columns:1fr}
+  h1.hh{font-size:clamp(2.25rem,11vw,3.25rem)}
+  .fg{grid-template-columns:1fr}
+  .stats-row{grid-template-columns:1fr}
+  .stat{border-right:none}
+  /* Sector cards: sin altura fija en 1 columna */
+  .sk{min-height:0}
+  /* CTA form: inputs full-width */
+  .cta-form{flex-direction:column;align-items:stretch}
+  .cta-form input{min-width:0;max-width:100%;width:100%}
+  /* Hero prod lineup: más compacto */
+  .hl-m{max-height:28vh}
+  .hl-s{max-height:22vh}
+}
+</style>
+</head>
+<body>
+
+<div id="pb"></div>
+
+<!-- ════ NAV ═══════════════════════════════════ -->
+<nav id="nav" aria-label="Navegación principal">
+  <div class="w">
+    <div class="ni">
+      <a href="#" class="logo" aria-label="BS Water Solutions">
+        <svg width="25" height="28" viewBox="0 0 48 54" fill="none" aria-hidden="true">
+          <path d="M24 26 C 23 34 21 42 18.5 50" stroke="#2C6BD2" stroke-width="2.2" stroke-linecap="round" fill="none"/>
+          <path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(45)" fill="#4A90E0"/>
+          <path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(135)" fill="#2C6BD2"/>
+          <path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(225)" fill="#2C6BD2"/>
+          <path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(315)" fill="#4A90E0"/>
+        </svg>
+        BS Water Solutions
+      </a>
+      <nav class="nlinks">
+        <a href="#beneficios">Beneficios</a>
+        <a href="#proceso">Proceso</a>
+        <a href="#sectores">Sectores</a>
+        <a href="#productos">Productos</a>
+        <a href="#faq">FAQ</a>
+      </nav>
+      <a href="#cta" class="btn btn-p btn-sm">Solicitar visita</a>
+      <button class="ham" id="ham-btn" aria-label="Abrir menú" aria-expanded="false" aria-controls="mobile-menu">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</nav>
+<div id="mobile-menu" role="dialog" aria-label="Menú de navegación" aria-hidden="true">
+  <a href="#beneficios" class="mm-link">Beneficios</a>
+  <a href="#proceso" class="mm-link">Proceso</a>
+  <a href="#sectores" class="mm-link">Sectores</a>
+  <a href="#productos" class="mm-link">Productos</a>
+  <a href="#faq" class="mm-link">FAQ</a>
+  <a href="#cta" class="btn btn-p">Solicitar visita</a>
+</div>
+
+<!-- ════ HERO ════════════════════════════════════ -->
+<section id="hero" aria-label="Presentación">
+  <canvas id="hc" aria-hidden="true"></canvas>
+  <div class="h-fade" aria-hidden="true"></div>
+  <div class="h-top">
+    <div class="h-badge">
+      <span class="bdot" aria-hidden="true"></span>
+      Agua osmotizada premium · Para empresas
+    </div>
+    <h1 class="hh">Pureza<br><em>líquida.</em></h1>
+    <p class="hsub">Dispensadores de agua osmotizada conectados a red. Sin garrafas. Sin plástico. Sin límites.</p>
+    <div class="hacts">
+      <a href="#cta" class="btn btn-p">Solicitar visita gratuita</a>
+      <a href="#productos" class="btn btn-o">Ver dispensadores</a>
+    </div>
+  </div>
+  <div class="h-prod">
+    <div class="h-prod-glow" aria-hidden="true"></div>
+    <div class="h-lineup">
+      <img class="hl-s hl-left" src="products/hero-750.png" alt="Dispensador Columbia FC 750" loading="eager">
+      <img class="hl-m" src="products/hero-725.png" alt="Dispensador Columbia FC 725" loading="eager">
+      <img class="hl-s hl-right" src="products/hero-900.png" alt="Dispensador Columbia FC 900" loading="eager">
+    </div>
+  </div>
+</section>
+
+<!-- ════ MARQUEE ═════════════════════════════════ -->
+<div id="marquee" aria-hidden="true">
+  <div class="mq-track">
+    <span class="mq-item">Pureza</span><span class="mq-item">Frescura</span><span class="mq-item">Salud</span><span class="mq-item">Sostenibilidad</span><span class="mq-item">Innovación</span><span class="mq-item">Bienestar</span><span class="mq-item">Ahorro</span><span class="mq-item">Confianza</span>
+    <span class="mq-item">Pureza</span><span class="mq-item">Frescura</span><span class="mq-item">Salud</span><span class="mq-item">Sostenibilidad</span><span class="mq-item">Innovación</span><span class="mq-item">Bienestar</span><span class="mq-item">Ahorro</span><span class="mq-item">Confianza</span>
+  </div>
+</div>
+
+<!-- ════ MANIFESTO ═══════════════════════════════ -->
+<section id="manifesto">
+  <div class="w">
+    <p class="mf rv">El agua que bebe tu equipo <span class="dim">dice mucho de tu empresa.</span> Nosotros la convertimos en <em>pura, ilimitada y sostenible.</em></p>
+  </div>
+</section>
+
+<!-- ════ STATS ═══════════════════════════════════ -->
+<section id="stats">
+  <div class="w">
+    <div class="stats-row rv">
+      <div class="stat"><div class="sv"><em>0</em></div><div class="sl">Garrafas de plástico</div></div>
+      <div class="stat"><div class="sv"><em>70%</em></div><div class="sl">Ahorro frente a garrafas</div></div>
+      <div class="stat"><div class="sv"><em>99%</em></div><div class="sl">Pureza por ósmosis inversa</div></div>
+      <div class="stat"><div class="sv"><em>5</em></div><div class="sl">Modelos · gama FC</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SHOWCASE ════════════════════════════════ -->
+<section id="showcase">
+  <div class="sh-glow" aria-hidden="true"></div>
+  <div class="w">
+    <div class="sh-grid">
+      <div class="sh-card rv">
+        <img src="products/office-final.png" alt="Dispensador Columbia FC 925 instalado en una oficina — BS Water Solutions" loading="lazy">
+        <span class="sh-cap">Columbia FC 925 · instalación real</span>
+      </div>
+      <div class="sh-txt rv">
+        <span class="eyebrow eyebrow-lt">El dispensador</span>
+        <h2 class="t t-lt">Diseñado para el<br><em>agua perfecta.</em></h2>
+        <p class="lead lead-lt">Tecnología de ósmosis inversa de última generación en un formato elegante, silencioso y pensado para entornos profesionales.</p>
+        <div class="temps">
+          <div class="temp temp-cold">
+            <div class="temp-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="12" y1="2" x2="12" y2="22"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M20 16l-4-4 4-4M4 8l4 4-4 4M16 4l-4 4-4-4M8 20l4-4 4 4"/></svg></div>
+            <div class="temp-t">Fría</div>
+            <div class="temp-d">Refrescante</div>
+          </div>
+          <div class="temp temp-hot">
+            <div class="temp-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M8.5 14.5A4.5 4.5 0 0 0 16 11c0-3-2.5-4-2.5-7 0 0-4 2-4 6.5 0 1-1 1.5-1.5 1.5a3 3 0 0 0 .5 6z"/></svg></div>
+            <div class="temp-t">Caliente</div>
+            <div class="temp-d">Al instante</div>
+          </div>
+          <div class="temp temp-nat">
+            <div class="temp-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5.5 9 5.5 14a6.5 6.5 0 0 0 13 0c0-5-6.5-11.5-6.5-11.5z"/></svg></div>
+            <div class="temp-t">Natural</div>
+            <div class="temp-d">Temperatura ambiente</div>
+          </div>
+        </div>
+        <div class="sh-feats">
+          <div class="shf">
+            <div class="shf-n">01</div>
+            <div><div class="shf-t">Ósmosis inversa de alta eficiencia</div><div class="shf-d">Filtración multietapa que garantiza una pureza excepcional en cada vaso.</div></div>
+          </div>
+          <div class="shf">
+            <div class="shf-n">02</div>
+            <div><div class="shf-t">Diseño silencioso y compacto</div><div class="shf-d">Integración elegante en cualquier espacio corporativo.</div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ BENEFITS ════════════════════════════════ -->
+<section id="beneficios">
+  <div class="w">
+    <div class="ben-hd rv">
+      <span class="eyebrow c">Por qué BS Water</span>
+      <h2 class="t">Lo que una garrafa<br><em>nunca podrá darte</em></h2>
+      <p class="lead">Tecnología, ahorro y compromiso medioambiental en un solo sistema conectado a tu red.</p>
+    </div>
+    <div class="ben-grid rv">
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">99%</div><div class="bc-t">Pureza certificada</div><div class="bc-d">Membranas que eliminan cloro, metales pesados, bacterias y microplásticos. Agua analizada en cada instalación.</div></div>
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">0</div><div class="bc-t">Plástico, para siempre</div><div class="bc-d">Adiós a las garrafas. Cero logística, cero residuos, cero impacto innecesario. Un compromiso real.</div></div>
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">70%</div><div class="bc-t">Ahorro garantizado</div><div class="bc-d">Sin pedidos, sin almacén, sin gestión. Agua de calidad a una fracción del coste tradicional.</div></div>
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">24/7</div><div class="bc-t">Siempre disponible</div><div class="bc-d">Conectado a red. Suministro ilimitado, sin interrupciones ni riesgo de quedarte sin agua.</div></div>
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">2-4h</div><div class="bc-t">Instalación sin obras</div><div class="bc-d">Conexión directa a tu red en pocas horas. Sin reformas, sin interrupciones en tu actividad.</div></div>
+      <div class="bc"><div class="bc-line"></div><div class="bc-num">100%</div><div class="bc-t">Mantenimiento incluido</div><div class="bc-d">Revisiones, filtros y soporte gestionados por nosotros. Tú solo disfrutas del agua.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SALUD / UV BAND ═════════════════ -->
+<section id="salud">
+  <div class="salud-glow" aria-hidden="true"></div>
+  <div class="w">
+    <div class="salud-grid">
+      <div class="salud-img rv">
+        <img src="products/salud-bottle.png" alt="Persona rellenando su botella en un dispensador Columbia con sistema ultravioleta" loading="lazy">
+        <span class="salud-uv">Sistema UV integrado</span>
+      </div>
+      <div class="salud-txt rv">
+        <span class="eyebrow eyebrow-lt">Salud y bienestar</span>
+        <h2 class="t t-lt">Agua libre de<br>bacterias <em>y virus.</em></h2>
+        <p class="lead lead-lt">Nuestra gama con sistema ultravioleta incorporado garantiza una dispensación de agua libre de bacterias y virus, con una eficacia superior al 99,9%. Pureza que se nota en cada sorbo.</p>
+        <div class="salud-chips">
+          <div class="schip"><strong>99,9%</strong> eficacia</div>
+          <div class="schip"><em>UV</em> esterilización continua</div>
+          <div class="schip"><strong>0</strong> químicos</div>
+        </div>
+        <div style="margin-top:2.5rem">
+          <a href="#productos" class="tlink" style="color:var(--sky)">Descubre la tecnología<svg width="15" height="15" viewBox="0 0 16 16" fill="none" aria-hidden="true"><path d="M3 8h10M9 4l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PROCESO ═════════════════════════════════ -->
+<section id="proceso">
+  <div class="w">
+    <div class="pr-hd rv">
+      <span class="eyebrow c">El proceso</span>
+      <h2 class="t">Agua pura en <em>tres pasos</em></h2>
+    </div>
+    <div class="tl rv">
+      <div class="tl-fill" aria-hidden="true"></div>
+      <div class="tl-step">
+        <div class="tl-node"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg></div>
+        <div class="tl-num">Paso 01</div>
+        <div class="tl-t">Visita gratuita</div>
+        <div class="tl-d">Analizamos tu espacio y consumo, sin coste.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-node"><svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4 4 0 0 0-5.4 5.4l-6 6a1.4 1.4 0 0 0 2 2l6-6a4 4 0 0 0 5.4-5.4l-2.5 2.5-2-2 2.5-2.5z"/></svg></div>
+        <div class="tl-num">Paso 02</div>
+        <div class="tl-t">Instalación express</div>
+        <div class="tl-d">Conectado a tu red en 2–4 horas. Sin obras.</div>
+      </div>
+      <div class="tl-step">
+        <div class="tl-node"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 2.5S5.5 9 5.5 14a6.5 6.5 0 0 0 13 0c0-5-6.5-11.5-6.5-11.5z"/></svg></div>
+        <div class="tl-num">Paso 03</div>
+        <div class="tl-t">Agua ilimitada</div>
+        <div class="tl-d">Pura cada día. Del mantenimiento nos ocupamos nosotros.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ SECTORES ════════════════════════════════ -->
+<section id="sectores">
+  <div class="w">
+    <div class="sec-hd rv">
+      <span class="eyebrow c">Sectores</span>
+      <h2 class="t">Para toda empresa que<br><em>valora lo que bebe</em></h2>
+      <p class="lead">Adaptamos el sistema al espacio, el consumo y las exigencias de cada sector.</p>
+    </div>
+    <div class="sg rv">
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="11" height="18" rx="1"/><path d="M14 8h6a1 1 0 0 1 1 1v11a1 1 0 0 1-1 1h-6"/><line x1="7" y1="7" x2="10" y2="7"/><line x1="7" y1="11" x2="10" y2="11"/><line x1="7" y1="15" x2="10" y2="15"/></svg></div><div class="sk-n">Oficinas</div><div class="sk-d">Hidratación de calidad para equipos, reuniones y zonas comunes.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 12h-4l-3 9L9 3l-3 9H2"/></svg></div><div class="sk-n">Clínicas y salud</div><div class="sk-d">Máxima pureza para centros médicos, dentales y sanitarios.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l1.9 5.8H20l-4.9 3.6 1.9 5.8L12 14.6 7 18.2l1.9-5.8L4 8.8h6.1z"/></svg></div><div class="sk-n">Estética y bienestar</div><div class="sk-d">Pureza y cuidado para centros de belleza, spa y wellness.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6.5 6.5l11 11M4 9l-1.5-1.5a1.5 1.5 0 0 1 0-2.1l1.4-1.4a1.5 1.5 0 0 1 2.1 0L7.5 5.5M20 15l1.5 1.5a1.5 1.5 0 0 1 0 2.1l-1.4 1.4a1.5 1.5 0 0 1-2.1 0L16.5 18.5"/></svg></div><div class="sk-n">Gimnasios</div><div class="sk-d">Hidratación de alto rendimiento, siempre disponible.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 2L3 6v14a2 2 0 0 0 2 2h14a2 2 0 0 0 2-2V6l-3-4z"/><line x1="3" y1="6" x2="21" y2="6"/><path d="M16 10a4 4 0 0 1-8 0"/></svg></div><div class="sk-n">Comercios</div><div class="sk-d">Mejora la experiencia de clientes y personal con agua premium.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg></div><div class="sk-n">Servicios</div><div class="sk-d">Solución escalable para despachos, consultoras y sedes.</div></div>
+      <div class="sk"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M2 20h20M4 20V8l6-3v15M14 20V5l6 3v12M7 11h0M7 14h0M7 17h0M17 11h0M17 14h0M17 17h0"/></svg></div><div class="sk-n">Industria</div><div class="sk-d">Agua certificada para plantas, almacenes y entornos exigentes.</div></div>
+      <div class="sk sk-cta"><div class="sk-ic"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="16"/><line x1="8" y1="12" x2="16" y2="12"/></svg></div><div class="sk-n">¿Otro sector?</div><div class="sk-d">Tenemos una solución adaptada para tu empresa.</div><a href="#cta" class="sk-link">Consultar →</a></div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ PRODUCTOS ════════════════════════════════ -->
+<section id="productos">
+  <div class="w">
+    <div class="prod-hd rv">
+      <div>
+        <span class="eyebrow">Catálogo</span>
+        <h2 class="t">La gama <em>Columbia FC</em></h2>
+      </div>
+      <a href="#cta" class="btn btn-p" style="flex-shrink:0">Solicitar información</a>
+    </div>
+    <div class="prod-g rv">
+      <div class="pcard">
+        <div class="pvis"><img src="products/cat-425.png" alt="Columbia FC 425" loading="lazy"></div>
+        <div class="pinfo"><div class="pmod">FC 425</div><div class="pname">Compacto</div><div class="pdesc">Alto rendimiento para espacios reducidos.</div><div class="pspecs"><div class="psp">Frío y ambiente</div><div class="psp">Conexión a red</div><div class="psp">Ósmosis inversa</div></div></div>
+        <div class="pcta"><a href="#cta" class="btn btn-o btn-sm">Más información</a></div>
+      </div>
+      <div class="pcard">
+        <div class="pvis"><img src="products/cat-525.png" alt="Columbia FC 525" loading="lazy"></div>
+        <div class="pinfo"><div class="pmod">FC 525</div><div class="pname">Estándar</div><div class="pdesc">El equilibrio perfecto entre diseño y prestaciones.</div><div class="pspecs"><div class="psp">Frío, caliente y ambiente</div><div class="psp">Panel táctil</div><div class="psp">Ósmosis certificada</div></div></div>
+        <div class="pcta"><a href="#cta" class="btn btn-o btn-sm">Más información</a></div>
+      </div>
+      <div class="pcard pcard-star">
+        <div class="pvis"><span class="ptag">Más solicitado</span><img src="products/cat-725.png" alt="Columbia FC 725" loading="lazy"></div>
+        <div class="pinfo"><div class="pmod">FC 725</div><div class="pname">Profesional</div><div class="pdesc">Máximo rendimiento para uso intensivo y alto consumo.</div><div class="pspecs"><div class="psp">Frío, caliente y ambiente</div><div class="psp">Panel retroiluminado</div><div class="psp">Ósmosis 5 etapas + UV</div></div></div>
+        <div class="pcta"><a href="#cta" class="btn btn-p btn-sm">Más información</a></div>
+      </div>
+      <div class="pcard">
+        <div class="pvis"><img src="products/cat-750.png" alt="Columbia FC 750" loading="lazy"></div>
+        <div class="pinfo"><div class="pmod">FC 750</div><div class="pname">Avanzado</div><div class="pdesc">Filtración avanzada y diseño minimalista.</div><div class="pspecs"><div class="psp">Multi-temperatura</div><div class="psp">Diseño premium</div><div class="psp">Ósmosis 6 etapas</div></div></div>
+        <div class="pcta"><a href="#cta" class="btn btn-o btn-sm">Más información</a></div>
+      </div>
+      <div class="pcard">
+        <div class="pvis"><img src="products/cat-900.png" alt="Columbia FC 900" loading="lazy"></div>
+        <div class="pinfo"><div class="pmod">FC 900</div><div class="pname">Premium</div><div class="pdesc">El modelo insignia. Arquitectura vanguardista.</div><div class="pspecs"><div class="psp">Diseño exclusivo</div><div class="psp">Ósmosis 7 etapas + UV</div><div class="psp">Conectividad inteligente</div></div></div>
+        <div class="pcta"><a href="#cta" class="btn btn-o btn-sm">Más información</a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ COMPARATIVA ═════════════════════════════ -->
+<section id="comparativa">
+  <div class="w">
+    <div class="cmp-hd rv">
+      <span class="eyebrow c">Comparativa</span>
+      <h2 class="t">Las garrafas son<br><em>del pasado</em></h2>
+      <p class="lead">Menos coste, mejor agua, cero plástico. La elección es clara.</p>
+    </div>
+    <div class="ctable-wrap rv"><div class="ctable">
+      <div class="cth">
+        <div class="cthc">Criterio</div>
+        <div class="cthc">
+          <svg width="15" height="17" viewBox="0 0 48 54" fill="none" aria-hidden="true">
+            <path d="M24 26 C 23 34 21 42 18.5 50" stroke="#2C6BD2" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(45)" fill="#4A90E0"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(135)" fill="#2C6BD2"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(225)" fill="#2C6BD2"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(315)" fill="#4A90E0"/>
+          </svg>
+          <span class="cbold">BS Water Solutions</span>
+        </div>
+        <div class="cthc"><span class="csoft">Garrafas tradicionales</span></div>
+      </div>
+      <div class="ctr"><div class="ctd">Calidad del agua</div><div class="ctd"><span class="vg">Ósmosis certificada</span></div><div class="ctd"><span class="vb">Variable, sin garantía</span></div></div>
+      <div class="ctr"><div class="ctd">Coste mensual</div><div class="ctd"><span class="vg">Desde 35 €/mes</span></div><div class="ctd"><span class="vb">100 – 250 €/mes</span></div></div>
+      <div class="ctr"><div class="ctd">Residuo plástico</div><div class="ctd"><span class="vg">Cero — 0 kg/mes</span></div><div class="ctd"><span class="vb">5 – 20 kg/mes</span></div></div>
+      <div class="ctr"><div class="ctd">Disponibilidad</div><div class="ctd"><span class="vg">Ilimitada, 24/7</span></div><div class="ctd"><span class="vb">Riesgo de quedarse sin agua</span></div></div>
+      <div class="ctr"><div class="ctd">Gestión</div><div class="ctd"><span class="vg">Ninguna por tu parte</span></div><div class="ctd"><span class="vb">Pedidos y almacén</span></div></div>
+      <div class="ctr"><div class="ctd">Mantenimiento</div><div class="ctd"><span class="vg">Incluido</span></div><div class="ctd"><span class="vb">A cargo del cliente</span></div></div>
+      <div class="ctr"><div class="ctd">Impacto ambiental</div><div class="ctd"><span class="vg">Huella mínima</span></div><div class="ctd"><span class="vb">Alto impacto plástico</span></div></div>
+    </div></div>
+  </div>
+</section>
+
+<!-- ════ FAQ ══════════════════════════════════════ -->
+<section id="faq">
+  <div class="w">
+    <div class="rv" style="text-align:center">
+      <span class="eyebrow c">FAQ</span>
+      <h2 class="t">Preguntas frecuentes</h2>
+    </div>
+    <div class="faq-g rv">
+      <div class="faql">
+        <div class="fi op">
+          <div class="fq" role="button" tabindex="0" aria-expanded="true">¿Cómo funciona la ósmosis inversa?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">El agua de red pasa por membranas de alta precisión que eliminan hasta el 99% de impurezas, cloro, metales pesados, bacterias y microplásticos. El resultado: agua de pureza excepcional con sabor limpio y neutro.</div></div>
+        </div>
+        <div class="fi">
+          <div class="fq" role="button" tabindex="0" aria-expanded="false">¿Qué incluye el servicio?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">Equipo (renting o compra), instalación completa, mantenimiento preventivo, cambio de filtros y soporte técnico prioritario. Todo sin costes ocultos.</div></div>
+        </div>
+        <div class="fi">
+          <div class="fq" role="button" tabindex="0" aria-expanded="false">¿Cuánto tarda la instalación?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">Entre 2 y 4 horas. Nuestro equipo gestiona la conexión, configuración y pruebas de calidad. Sin obras estructurales ni interrupciones significativas.</div></div>
+        </div>
+        <div class="fi">
+          <div class="fq" role="button" tabindex="0" aria-expanded="false">¿Necesito obras en mi local?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">No. Los dispensadores se conectan a tu instalación existente mediante una derivación estándar. En la mayoría de casos no es necesaria ninguna obra.</div></div>
+        </div>
+        <div class="fi">
+          <div class="fq" role="button" tabindex="0" aria-expanded="false">¿Qué pasa si hay una avería?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">Servicio técnico con respuesta prioritaria. Garantía completa y reparaciones incluidas en el contrato. Tu empresa nunca se queda sin agua.</div></div>
+        </div>
+        <div class="fi">
+          <div class="fq" role="button" tabindex="0" aria-expanded="false">¿Cómo sé qué modelo necesito?<svg class="fchv" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.75" aria-hidden="true"><path d="M5 7.5l5 5 5-5" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
+          <div class="fans" role="region"><div class="fansi">En la visita gratuita analizamos tu espacio, usuarios y consumo para recomendarte el modelo óptimo. Sin compromiso de contratación.</div></div>
+        </div>
+      </div>
+      <div class="fside">
+        <div class="fside-glow" aria-hidden="true"></div>
+        <div class="fst">¿Más preguntas?</div>
+        <div class="fsd">Nuestros asesores resuelven cualquier duda sobre los equipos, el proceso o el servicio.</div>
+        <a href="#cta" class="btn btn-p">Hablar con un asesor</a>
+        <div class="fslist">
+          <div class="fsli">Llamada comercial sin compromiso</div>
+          <div class="fsli">Visita gratuita a tus instalaciones</div>
+          <div class="fsli">Propuesta personalizada en 24 h</div>
+          <div class="fsli">Sin permanencia mínima</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ════ CTA ══════════════════════════════════════ -->
+<section id="cta">
+  <canvas id="ctac" aria-hidden="true"></canvas>
+  <div class="cta-gfx" aria-hidden="true"></div>
+  <div class="w">
+    <div class="cta-inner rv">
+      <span class="eyebrow eyebrow-lt c">Sin compromiso · Respuesta en 24 h</span>
+      <h2 class="ctah">Solicita tu visita<br><em>gratuita hoy.</em></h2>
+      <p class="ctap">Un asesor visita tus instalaciones, analiza tus necesidades y te presenta la solución ideal. Sin coste, sin presión, sin permanencia.</p>
+      <form class="cta-form" id="ctaForm" novalidate>
+        <input type="text" placeholder="Empresa" autocomplete="organization" required>
+        <input type="email" placeholder="Email corporativo" autocomplete="email" required>
+        <input type="tel" placeholder="Teléfono" autocomplete="tel">
+        <button type="submit" class="btn btn-w" id="ctaBtn">Solicitar visita gratuita</button>
+      </form>
+      <p class="ctanote">Respuesta garantizada en menos de 24 horas laborables.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ════ FOOTER ═══════════════════════════════════ -->
+<footer>
+  <div class="w">
+    <div class="fg">
+      <div>
+        <div class="flog">
+          <svg width="22" height="25" viewBox="0 0 48 54" fill="none" aria-hidden="true">
+            <path d="M24 26 C 23 34 21 42 18.5 50" stroke="#4A90E0" stroke-width="2.2" stroke-linecap="round" fill="none"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(45)" fill="#67A8EC"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(135)" fill="#4A90E0"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(225)" fill="#4A90E0"/><path d="M0 0 C -2 -3.5 -8.5 -7.5 -8.5 -12.5 C -8.5 -15.8 -5.8 -17.2 -3.3 -16.3 C -1.4 -15.6 -0.2 -13.8 0 -12.8 C 0.2 -13.8 1.4 -15.6 3.3 -16.3 C 5.8 -17.2 8.5 -15.8 8.5 -12.5 C 8.5 -7.5 2 -3.5 0 0 Z" transform="translate(24 22) rotate(315)" fill="#67A8EC"/>
+          </svg>
+          BS Water Solutions
+        </div>
+        <p class="ftg">Dispensadores de agua osmotizada premium para empresas. Pureza, sostenibilidad y ahorro.</p>
+      </div>
+      <div><div class="fh">Soluciones</div><div class="fls"><a href="#beneficios">Beneficios</a><a href="#productos">Catálogo FC</a><a href="#sectores">Sectores</a><a href="#comparativa">Comparativa</a></div></div>
+      <div><div class="fh">Empresa</div><div class="fls"><a href="#">Sobre nosotros</a><a href="#">Contacto</a><a href="#faq">FAQ</a></div></div>
+      <div><div class="fh">Legal</div><div class="fls"><a href="#">Privacidad</a><a href="#">Aviso legal</a><a href="#">Cookies</a></div></div>
+    </div>
+    <div class="fbar">
+      <p class="fcp">© 2025 BS Water Solutions · Benestar i Solucions S.L.</p>
+      <p class="fcp">Todos los derechos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<script>
+/* ── Hero light water mesh ─────────── */
+function meshCanvas(id, opts){
+  const c = document.getElementById(id);
+  if(!c) return;
+  const ctx = c.getContext('2d');
+  let W, H, t = 0;
+  const resize = () => { W = c.width = c.offsetWidth; H = c.height = c.offsetHeight };
+  window.addEventListener('resize', resize); resize();
+  function frame(){
+    const bg = ctx.createLinearGradient(0,0,0,H);
+    bg.addColorStop(0, opts.top); bg.addColorStop(1, opts.bottom);
+    ctx.fillStyle = bg; ctx.fillRect(0,0,W,H);
+    opts.blobs.forEach((b,i)=>{
+      const bx=(b.x+Math.sin(t*b.s+i*1.4)*.08)*W;
+      const by=(b.y+Math.cos(t*b.s*.8+i)*.06)*H;
+      const r=b.r*Math.min(W,H);
+      const g=ctx.createRadialGradient(bx,by,0,bx,by,r);
+      g.addColorStop(0,b.c+b.a+')'); g.addColorStop(.4,b.c+(b.a*.4)+')'); g.addColorStop(1,b.c+'0)');
+      ctx.fillStyle=g; ctx.fillRect(0,0,W,H);
+    });
+    t+=.006; requestAnimationFrame(frame);
+  }
+  frame();
+}
+meshCanvas('hc',{
+  top:'#FBFDFF', bottom:'#EEF5FD',
+  blobs:[
+    {x:.22,y:.30,r:.55,s:.5,c:'rgba(120,180,240,',a:.32},
+    {x:.78,y:.22,r:.45,s:.4,c:'rgba(90,160,235,', a:.26},
+    {x:.60,y:.62,r:.50,s:.6,c:'rgba(150,200,245,',a:.30},
+    {x:.12,y:.70,r:.38,s:.45,c:'rgba(110,175,238,',a:.22}
+  ]
+});
+meshCanvas('ctac',{
+  top:'#0B1626', bottom:'#0A1322',
+  blobs:[
+    {x:.30,y:.40,r:.5,s:.5,c:'rgba(40,110,210,',a:.30},
+    {x:.72,y:.30,r:.42,s:.4,c:'rgba(30,95,190,', a:.24},
+    {x:.55,y:.75,r:.48,s:.6,c:'rgba(50,125,220,',a:.22}
+  ]
+});
+
+/* ── Progress + Nav ────────────────── */
+const pb=document.getElementById('pb'), nav=document.getElementById('nav');
+window.addEventListener('scroll',()=>{
+  const pct=scrollY/(document.body.scrollHeight-innerHeight)*100;
+  pb.style.width=Math.min(pct,100)+'%';
+  nav.classList.toggle('sc',scrollY>50);
+},{passive:true});
+nav.classList.toggle('sc',scrollY>50);
+
+/* ── Reveal ────────────────────────── */
+const ro=new IntersectionObserver(es=>{
+  es.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); ro.unobserve(e.target);} });
+},{threshold:.08,rootMargin:'0px 0px -50px 0px'});
+document.querySelectorAll('.rv').forEach(el=>ro.observe(el));
+
+/* ── Process timeline ──────────────── */
+const tl=document.querySelector('.tl');
+if(tl){
+  const steps=[...tl.querySelectorAll('.tl-step')];
+  const tlObs=new IntersectionObserver(es=>{
+    es.forEach(e=>{
+      if(e.isIntersecting){
+        tl.classList.add('go');
+        steps.forEach((s,i)=>setTimeout(()=>s.classList.add('on'), i*400));
+        tlObs.disconnect();
+      }
+    });
+  },{threshold:.4});
+  tlObs.observe(tl);
+}
+
+/* ── FAQ ───────────────────────────── */
+document.querySelectorAll('.fq').forEach(btn=>{
+  const toggle=()=>{
+    const item=btn.parentElement, was=item.classList.contains('op');
+    document.querySelectorAll('.fi').forEach(fi=>{fi.classList.remove('op');fi.querySelector('.fq').setAttribute('aria-expanded','false');});
+    if(!was){item.classList.add('op');btn.setAttribute('aria-expanded','true');}
+  };
+  btn.addEventListener('click',toggle);
+  btn.addEventListener('keydown',e=>{if(e.key==='Enter'||e.key===' '){e.preventDefault();toggle();}});
+});
+
+/* ── Form ──────────────────────────── */
+document.getElementById('ctaForm').addEventListener('submit',function(e){
+  e.preventDefault();
+  const btn=document.getElementById('ctaBtn'), orig=btn.innerHTML;
+  btn.textContent='¡Enviado! Te contactamos en 24 h.'; btn.disabled=true;
+  setTimeout(()=>{btn.innerHTML=orig;btn.disabled=false;this.reset();},4500);
+});
+
+/* ── Water ripple on buttons ───────── */
+document.addEventListener('pointerdown',e=>{
+  const btn=e.target.closest('.btn');
+  if(!btn||btn.disabled)return;
+  const r=btn.getBoundingClientRect();
+  const size=Math.max(r.width,r.height);
+  const rip=document.createElement('span');
+  rip.className='ripple';
+  rip.style.width=rip.style.height=size+'px';
+  rip.style.left=(e.clientX-r.left-size/2)+'px';
+  rip.style.top=(e.clientY-r.top-size/2)+'px';
+  btn.appendChild(rip);
+  rip.addEventListener('animationend',()=>rip.remove());
+});
+
+/* ── Hamburger menu ────────────────── */
+const hamBtn=document.getElementById('ham-btn');
+const mobileMenu=document.getElementById('mobile-menu');
+if(hamBtn&&mobileMenu){
+  const close=()=>{
+    mobileMenu.classList.remove('open');
+    mobileMenu.setAttribute('aria-hidden','true');
+    hamBtn.setAttribute('aria-expanded','false');
+    document.body.style.overflow='';
+  };
+  hamBtn.addEventListener('click',()=>{
+    const open=mobileMenu.classList.toggle('open');
+    mobileMenu.setAttribute('aria-hidden',!open);
+    hamBtn.setAttribute('aria-expanded',open);
+    document.body.style.overflow=open?'hidden':'';
+  });
+  mobileMenu.querySelectorAll('a').forEach(a=>a.addEventListener('click',close));
+  document.addEventListener('keydown',e=>{if(e.key==='Escape')close();});
+}
+</script>
+</body>
+</html>
