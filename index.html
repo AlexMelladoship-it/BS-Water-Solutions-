@@ -329,6 +329,7 @@ h1.hh em{font-style:normal;color:var(--azure)}
 .ctah em{font-style:normal;color:var(--sky)}
 .ctap{font-size:1.0625rem;color:var(--muted-d);line-height:1.8;margin-bottom:2.75rem}
 .cta-form{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center}
+.hp-field{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
 .cta-form input{flex:1;min-width:180px;max-width:230px;padding:.9375rem 1.375rem;border-radius:999px;
   border:1px solid oklch(1 0 0/.14);background:oklch(1 0 0/.07);color:#fff;font-family:var(--fb);
   font-size:.9375rem;outline:none;transition:border-color .2s}
@@ -797,10 +798,12 @@ footer{background:var(--abyss);border-top:1px solid oklch(1 0 0/.06);padding:4re
       <span class="eyebrow eyebrow-lt c">Sin compromiso · Respuesta en 24 h</span>
       <h2 class="ctah">Solicita tu visita<br><em>gratuita hoy.</em></h2>
       <p class="ctap">Un asesor visita tus instalaciones, analiza tus necesidades y te presenta la solución ideal. Sin coste, sin presión, sin permanencia.</p>
-      <form class="cta-form" id="ctaForm" novalidate>
-        <input type="text" placeholder="Empresa" autocomplete="organization" required>
-        <input type="email" placeholder="Email corporativo" autocomplete="email" required>
-        <input type="tel" placeholder="Teléfono" autocomplete="tel">
+      <form class="cta-form" id="ctaForm" name="contacto" method="POST" data-netlify="true" netlify-honeypot="empresa-web" novalidate>
+        <input type="hidden" name="form-name" value="contacto">
+        <p class="hp-field"><label>No rellenar: <input name="empresa-web" tabindex="-1" autocomplete="off"></label></p>
+        <input type="text" name="empresa" placeholder="Empresa" autocomplete="organization" required>
+        <input type="email" name="email" placeholder="Email corporativo" autocomplete="email" required>
+        <input type="tel" name="telefono" placeholder="Teléfono" autocomplete="tel">
         <button type="submit" class="btn btn-w" id="ctaBtn">Solicitar visita gratuita</button>
       </form>
       <p class="ctanote">Respuesta garantizada en menos de 24 horas laborables.</p>
@@ -920,9 +923,17 @@ document.querySelectorAll('.fq').forEach(btn=>{
 /* ── Form ──────────────────────────── */
 document.getElementById('ctaForm').addEventListener('submit',function(e){
   e.preventDefault();
-  const btn=document.getElementById('ctaBtn'), orig=btn.innerHTML;
-  btn.textContent='¡Enviado! Te contactamos en 24 h.'; btn.disabled=true;
-  setTimeout(()=>{btn.innerHTML=orig;btn.disabled=false;this.reset();},4500);
+  const form=this, btn=document.getElementById('ctaBtn'), orig=btn.innerHTML;
+  btn.disabled=true;
+  fetch('/',{method:'POST',headers:{'Content-Type':'application/x-www-form-urlencoded'},body:new URLSearchParams(new FormData(form)).toString()})
+    .then(()=>{
+      btn.textContent='¡Enviado! Te contactamos en 24 h.';
+      setTimeout(()=>{btn.innerHTML=orig;btn.disabled=false;form.reset();},4500);
+    })
+    .catch(()=>{
+      btn.textContent='Error al enviar. Inténtalo de nuevo.';
+      setTimeout(()=>{btn.innerHTML=orig;btn.disabled=false;},3500);
+    });
 });
 
 /* ── Water ripple on buttons ───────── */
